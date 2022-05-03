@@ -1,12 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Overview</title>
+
+     <link href="./assets/img/favicon.svg" rel="icon">
+
+    <!--  CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
-    <h1>Document</h1>
+    <section class="topheader">
+        <div class="row align-items-center justify-content-between tophead1">
+            <div class="col-md-3">
+                <a href="index.html" class="mainlogo"><img src="./assets/img/logo.svg" /></a>
+            </div>
+            <div class="col-md-4 dis768non">
+                <form class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search...">
+                    <a href="#"><img class="search-icon" src="./assets/img/search.svg"></a>
+                </form>
+            </div>
+            <div class="col-md-5">
+                <div class="dflex1 header1">
+                    <div>
+                        <a href="#">
+                            <img src="./assets/img/user.svg" />
+                            <h6>Sign In</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="./assets/img/setting.svg" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="bellnoti1">
+                            <span></span>
+                            <img src="./assets/img/bell.svg" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="maincontnt">
+      <div class="row">
+        <div class="col-md-3">
+            <div class="sidebar1">
+               <ul>
+                   <li>
+                       <a href="index.html" class="active">
+                           <i class="fa fa-eye" aria-hidden="true"></i>
+                           Overview
+                       </a>
+                   </li>
+                     <li>
+                       <a href="statistics.html">
+                           <i class="fa fa-line-chart" aria-hidden="true"></i>
+                           Statistics
+                       </a>
+                   </li>
+                     <li>
+                       <a href="trades.html">
+                           <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                           Trades
+                       </a>
+                   </li>
+                     <li >
+                       <a href="journal.html">
+                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                           Journal
+                       </a>
+                   </li>
+                     <li >
+                       <a href="import-trades.html">
+                           <i class="fa fa-download" aria-hidden="true"></i>
+                           Import Trades
+                       </a>
+                   </li>
+                     <li href="#">
+                       <a>
+                           <i class="fa fa-rocket" aria-hidden="true"></i>
+                           Log out
+                       </a>
+                   </li>
+               </ul>
+            </div>
+        </div>
+           <div class="col-md-9">
+              <section class="mainbody1">
+                <div class="secondtophead">
+                <div class="dflex boxsehea1">
+                    <a href="#" class="active">$</a>
+                     <a href="#">%</a>
+                      <a href="#">R</a>
+                </div>
+                <div class="dflex boxsehea2">
+                    <a href="index.html" class="active">Overview</a>
+                    <a href="statistics.html">Statistics</a>
+                    <a href="trades.html">Trades</a>
+                    <a href="journal.html">Journal</a>
+                    <a href="import-trades.html">Import trades</a>
+                </div>
+                <div class="boxsehea3" >
+                     <a><img src="./assets/img/sliders-h-Bold.svg" /></a>
+                </div>
+               </div>
+               <div class="chartsmain">
+                  <div class="row">
+                   <div class="col-md-6">
+                      <div class="chartdivs01">
+                          <h2>Daily gross P&L</h2>
+                          <div id="chartdiv1"></div>
+                      </div>
+                   </div>
+                    <div class="col-md-6">
+                      <div class="chartdivs01">
+                          <h2>Gross cumulative P&L </h2>
+                          <div id="chartdiv1"></div>
+                      </div>
+                   </div>
+                    <div class="col-md-6">
+                      <div class="chartdivs01">
+                          <h2>Daily Volume</h2>
+                          <div id="chartdiv1"></div>
+                      </div>
+                   </div>
+                    <div class="col-md-6">
+                      <div class="chartdivs01">
+                          <h2>Daily Win % </h2>
+                          <div id="chartdiv1"></div>
+                      </div>
+                   </div>
+                  </div>
+               </div>
+              </section>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am5.ready(function() {
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv1");
+
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+
+// Create chart
+// https://www.amcharts.com/docs/v5/charts/xy-chart/
+var chart = root.container.children.push(am5xy.XYChart.new(root, {
+  panX: false,
+  panY: false,
+  wheelX: "panX",
+  wheelY: "zoomX"
+}));
+
+
+// Add cursor
+// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+  behavior: "zoomX"
+}));
+cursor.lineY.set("visible", false);
+
+var date = new Date();
+date.setHours(0, 0, 0, 0);
+var value = 100;
+
+function generateData() {
+  value = Math.round((Math.random() * 10 - 5) + value);
+  am5.time.add(date, "day", 1);
+  return {
+    date: date.getTime(),
+    value: value
+  };
+}
+
+function generateDatas(count) {
+  var data = [];
+  for (var i = 0; i < count; ++i) {
+    data.push(generateData());
+  }
+  return data;
+}
+
+
+// Create axes
+// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
+  maxDeviation: 0,
+  baseInterval: {
+    timeUnit: "day",
+    count: 1
+  },
+  renderer: am5xy.AxisRendererX.new(root, {}),
+  tooltip: am5.Tooltip.new(root, {})
+}));
+
+var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+  renderer: am5xy.AxisRendererY.new(root, {})
+}));
+
+
+// Add series
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+  name: "Series",
+  xAxis: xAxis,
+  yAxis: yAxis,
+  valueYField: "value",
+  valueXField: "date",
+  tooltip: am5.Tooltip.new(root, {
+    labelText: "{valueY}"
+  })
+}));
+
+
+
+// Add scrollbar
+// https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+chart.set("scrollbarX", am5.Scrollbar.new(root, {
+  orientation: "horizontal"
+}));
+
+var data = generateDatas(50);
+series.data.setAll(data);
+
+
+// Make stuff animate on load
+// https://www.amcharts.com/docs/v5/concepts/animations/
+series.appear(1000);
+chart.appear(1000, 100);
+
+}); // end am5.ready()
+</script>
+
 </body>
+
 </html>

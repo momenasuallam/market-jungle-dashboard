@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Trades</title>
+
+    <link href="./assets/img/favicon.svg" rel="icon">
+
+    <!--  CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.min.css" rel="stylesheet">
+        <link href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet">
+
+    <link href="./assets/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+        integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <section class="topheader">
+        <div class="row align-items-center justify-content-between tophead1">
+            <div class="col-md-3">
+                <a href="index.html" class="mainlogo"><img src="./assets/img/logo.svg" /></a>
+            </div>
+            <div class="col-md-4 dis768non">
+                <form class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search...">
+                    <a href="#"><img class="search-icon" src="./assets/img/search.svg"></a>
+                </form>
+            </div>
+            <div class="col-md-5">
+                <div class="dflex1 header1">
+                    <div>
+                        <a href="#">
+                            <img src="./assets/img/user.svg" />
+                            <h6>Sign In</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="./assets/img/setting.svg" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="bellnoti1">
+                            <span></span>
+                            <img src="./assets/img/bell.svg" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="maincontnt">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="sidebar1">
+                    <ul>
+                        <li>
+                            <a href="index.html" >
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                Overview
+                            </a>
+                        </li>
+                        <li>
+                            <a href="statistics.html">
+                                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                                Statistics
+                            </a>
+                        </li>
+                        <li>
+                            <a href="trades.html">
+                                <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                                Trades
+                            </a>
+                        </li>
+                        <li >
+                            <a href="journal.html">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                Journal
+                            </a>
+                        </li>
+                        <li  >
+                       <a href="import-trades.html" class="active">
+                           <i class=" fa fa-download" aria-hidden="true"></i>
+                            Import Trades
+                            </a>
+                        </li>
+                        <li href="#">
+                            <a >
+                                <i class="fa fa-rocket" aria-hidden="true"></i>
+                                Log out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <section class="mainbody1">
+                    <div class="secondtophead">
+                        <div class="dflex boxsehea1">
+                            <a href="#" class="active">$</a>
+                            <a href="#">%</a>
+                            <a href="#">R</a>
+                        </div>
+                        <div class="dflex boxsehea2">
+                            <a href="index.html">Overview</a>
+                            <a href="statistics.html">Statistics</a>
+                            <a href="trades.html">Trades</a>
+                            <a href="journal.html">Journal</a>
+                            <a href="import-trades.html" class="active">Import trades</a>
+                        </div>
+                        <div class="boxsehea3">
+                            <a><img src="./assets/img/sliders-h-Bold.svg" /></a>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="imptrad1">
+                    <h2>Import Trades</h2>
+                    <div class="row">
+                          <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Select your broker or trading format</label>
+                              	  <select class="form-select " aria-label="example">
+                                    <option>Select broker</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Local time zone</label>
+                                <select class="form-select " aria-label="example">
+                                    <option>Select your local timezone</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Date format</label>
+                                <select class="form-select " aria-label="example">
+                                    <option>Select your date format</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label class="form-label">Add Tags to all trades in this import</label>
+                                  <select class="form-select " aria-label="example">
+                                    <option>Select your date format</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                      
+                    </div>
+
+                    <div class="addfiles">
+                           <div class="wrap-custom-file">
+    <input type="file" name="image1" id="image1" accept=".gif, .jpg, .png" />
+    <label  for="image1">
+        <img src="./assets/img/file-Bold.svg" class="imgup" />
+      <span>Drag and drop a file or click here to upload</span>
+    </label>
+  </div>
+                    </div>
+
+                    <div class="textboxheigh">
+                      <p>Important Instructions: </p>
+                      <p>To import trade data from Thinkorswim, follow these steps:</p>
+                      <p>
+                          Open the Thinkorswim desktop application. At the top of the window, select a specific account from the dropdown list (instead of "ALL ACCOUNTS").
+Go to the "Monitor" tab, and choose "Account Statement" from the options at the top.
+Click the dropdown at the top of the Account Statement and select the date range you wish to import. Wait for the "Trade History" section to fill in with your trades from that range; note that if you are looking for data far in the past this may take a while.
+Make sure the Trade History section is sorted by Exec Time, with the oldest first.
+Click the actions menu at the top right of the window, and select "Export to file" from the menu that displays.
+Change the file type to "CSV", and save the file to your desktop (or anywhere else - just remember where you put it).
+Here on the import page, click "Choose file", choose the file you created above, and click "Upload".
+NOTE: currently, the "Trade History" section of your account statement must include at least the following columns: Exec Time, Spread, Side, Qty, Symbol, and Price. The default column settings will work, or if you have changed them, you can restore the defaults by clicking the circle to the left of the column headers under trade history, select "Customize", then click Load Defaults and OK.
+
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+<!-- 
+      <script scr="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+      <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+    <!-- <script scr="./assets/js/tags.js"></script> -->
+   
+<script>
+$('input[type="file"]').each(function(){
+  // Refs
+  var $file = $(this),
+      $label = $file.next('label'),
+      $labelText = $label.find('span'),
+      labelDefault = $labelText.text();
+  
+  // When a new file is selected
+  $file.on('change', function(event){
+    var fileName = $file.val().split( '\\' ).pop(),
+        tmppath = URL.createObjectURL(event.target.files[0]);
+    //Check successfully selection
+		if( fileName ){
+      $label
+        .addClass('file-ok')
+        .css('background-image', 'url(' + tmppath + ')');
+			$labelText.text(fileName);
+    }else{
+      $label.removeClass('file-ok');
+			$labelText.text(labelDefault);
+    }
+  });
+  
+// End loop of file input elements  
+});
+</script>
+</body>
+
+</html>
