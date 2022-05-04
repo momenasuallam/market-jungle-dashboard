@@ -908,7 +908,30 @@ text-align: center;
 }
 .select2-container--default
   .select2-results__option--highlighted[aria-selected] {
-  background-color: #01a9ac;
+  background-color: #fff !important;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+.select2-container--default .select2-search--inline .select2-search__field{
+ font-family: futura;
+font-weight: 500;
+font-size: 13px !important;
+line-height: 13px;
+color: #000000; 
+}
+.select2-results__option{
+font-family: futura;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
+letter-spacing: 0.5px;
+
+/* Daikin/Brand/Daikin Black - Primary */
+
+color: #000000;
 }
 .select2-container--default .select2-selection--multiple {
   padding: 3px;
