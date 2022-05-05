@@ -168,7 +168,7 @@
                             <a href="import-trades.html">Import trades</a>
                         </div>
                         <div class="boxsehea3">
-                            <!-- <a><img src="./assets/img/sliders-h-Bold.svg" /></a> -->
+                              <a class="showfilter" id="showfilter"><img src="./assets/img/sliders-h-Bold.svg" /></a>
                         </div>
                     </div>
 
@@ -278,6 +278,139 @@
             </div>
         </div>
     </section>
+
+             <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <div class="filtertop">
+            <h2><img src="./assets/img/filter.svg" /> Filter</h2>
+          </div>
+        <div class="fiterslectmain">
+            <div class="filterselects">
+            <h2>Accounts:</h2>
+            <dl class="dropdown dropdown1">
+              <dt>
+                <a href="#">
+                  <span class="hida hida1">Select</span>
+                  <p class="multiSel multiSel1"></p>
+                </a>
+              </dt>
+
+              <dd>
+                <div class="mutliSelect mutliSelect1">
+                  <ul>
+                    <li>
+                      <input type="checkbox" id="cb1" value="Account1" />Account 1
+                    </li>
+
+                    <li>
+                      <input type="checkbox" id="cb2" value="Account2" />Account 2
+                    </li>
+
+                    <li>
+                      <input type="checkbox" id="cb3" value="Account3" />Account 2
+                    </li>
+
+                  </ul>
+                </div>
+              </dd>
+            </dl>
+          </div>
+            <div class="filterselects">
+            <h2>Strategies:</h2>
+            <dl class="dropdown dropdown2">
+              <dt>
+                <a href="#">
+                  <span class="hida hida2">Select</span>
+                  <p class="multiSel multiSel2"></p>
+                </a>
+              </dt>
+
+              <dd>
+                <div class="mutliSelect mutliSelect2">
+                  <ul>
+                    <li>
+                      <input type="checkbox" id="cb1" value="Strategy1" />Strategy 1
+                    </li>
+
+                    <li>
+                      <input type="checkbox" id="cb2" value="Strategy2" />Strategy 2
+                    </li>
+
+                    <li>
+                      <input type="checkbox" id="cb3" value="Strategy3" />Strategy 2
+                    </li>
+
+                  </ul>
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="quickselect">
+            <h2>Quick Select:</h2>
+            <div class="qucikflexselct">
+             <a class="active">Last 30 days</a> <a>Last 60 days</a> <a>Last 90 days</a>
+            </div>
+             <div class="qucikflexselct">
+             <a>Q1</a> <a>Q2</a>  <a>Q3</a>  <a>Q4</a>  <a>YTD</a>
+            </div>
+             <div class="qucikflexselct">
+             <a>Select Date Range</a>
+            </div>
+        </div>
+        <div class="selectdatesmain">
+           <div class="selectdate">
+             <h2>Start date:</h2>
+             <a>12/11/20</a>
+           </div>
+            <div class="selectdate">
+             <h2>End date:</h2>
+             <a>12/11/20</a>
+           </div>
+        </div>
+
+          <div class="filtertagmain">
+           <h2 class="filtertxt">
+             Filter Tag:
+           </h2>
+               <select class="js-example-tags col-sm-12" multiple="multiple">
+                                    <option value="AL">Value 1</option>
+                                    <option value="WY">Value 2</option>
+                                    <option value="WY">Account 1</option>
+                                    <option value="WY">Bitcoin TO THE MOON</option>
+                                    <option value="WY">SPY up 1000% </option>
+                                    </select>
+        </div>
+
+        <div class="positionfiltermian">
+          <h2>Position Filtering</h2>
+          <div class="positfilterflex">
+            <h2>Side:</h2>
+            <div>
+              <a>Long</a>
+              <a>Short</a>
+            </div>
+          </div>
+           <div class="positfilterflex">
+            <h2>Duration:</h2>
+            <div>
+              <a>Intraday</a>
+              <a>Multiday</a>
+            </div>
+          </div>
+
+          <button class="clearfilter">Clear Filters</button>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
     
 <!-- Resources -->

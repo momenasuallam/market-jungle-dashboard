@@ -141,6 +141,10 @@ background: linear-gradient(90deg, #043D10 0%, #043D10 6.45%, #04380F 16.95%, #0
      /* position: fixed; */
     /* width: 100%; */
      /* top: 11%; */
+     /* width: 26.8%; */
+}
+.maincontnt .col-md-9{
+  /* width: 73%; */
 } 
 .sidebar1{
 /* min-height: 100vh;
@@ -220,7 +224,7 @@ align-items: center;
 
 }
 .boxsehea1 a{
-background: #FFFFFF;
+    background: #FFFFFF;
     box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
     border-radius: 4px;
     font-family: futura;
@@ -228,10 +232,15 @@ background: #FFFFFF;
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
-    padding: 6px 16px;
+    /* padding: 6px 16px; */
     color: #000000;
     text-decoration: none;
     margin-right: 9px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .boxsehea1 a:last-child{
   margin-right: 0px;
@@ -278,10 +287,16 @@ background: #FFFFFF;
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
-        padding: 4px 13px 8px;
+        /* padding: 4px 13px 8px; */
     color: #000000;
     text-decoration: none;
     margin-right: 9px;
+        width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+
 }
 .boxsehea3 a img{
 width: 18px;
@@ -546,8 +561,11 @@ margin-bottom: 0px;
   font-size: 22px;
 
 }
+.tradestable .table-responsive {
+    max-height: 580px;
+}
 .tradestable{
-
+margin-bottom: 80px;
 }
 .tradestable th{
 font-family: futura;
@@ -623,10 +641,15 @@ margin-bottom: 12px;
 }
 .pagination1 {
 width: 100%;
-    display: flex;
+display: flex;
     align-items: center;
     justify-content: flex-end;
-        padding: 12px 0;
+    padding: 12px 0;
+    position: fixed;
+    width: 75%;
+    right: 0;
+    background-color: #e5e5e5;
+    bottom: 0;
 }
 .pagination1 a{
 border: 1px solid #064A0E;
@@ -1473,8 +1496,8 @@ border-radius: 4px;
     right: 0;
 }
 .boxsehea2 a {
-    font-size: 13px;
-    padding: 2px 14px;
+    font-size: 10px;
+    padding: 0px 6px;
 }
 }
 @media(min-width:768px){
@@ -1556,6 +1579,9 @@ width: 65%;
   }
  .boxsehea2{
    flex-wrap: wrap;
+       flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
  }
  .header1 img{
   width: 14px;
