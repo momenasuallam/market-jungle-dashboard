@@ -15,9 +15,9 @@
      <link href="./assets/select2/dist/css/select2.min.css" rel="stylesheet">
         <link href="./assets/bootstrap-multiselect/dist/css/bootstrap-multiselect.css" rel="stylesheet">
            <link href="./assets/multiselect/css/multi-select.css" rel="stylesheet">
-    
+            
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" />
-
+        <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="./assets/jquery/dist/jquery.min.js"></script>  
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -171,32 +171,32 @@
             </div>
           </div>
           <div class="chartsmain">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="chartdivs01">
-                  <h2>Daily gross P&L</h2>
-                  <div id="chartdiv1"></div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="chartdivs01">
-                  <h2>Gross cumulative P&L </h2>
-                  <div id="chartdiv1"></div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="chartdivs01">
-                  <h2>Daily Volume</h2>
-                  <div id="chartdiv1"></div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="chartdivs01">
-                  <h2>Daily Win % </h2>
-                  <div id="chartdiv1"></div>
-                </div>
-              </div>
+                 <div class="row">
+          <div class="col-md-6">
+              <div
+                class="border-x-[1px] border-y-[1px]  rounded-md border-slate-300 bg-white chartBox">
+                <canvas style="height: 100%; width: 100%;" id="dailyGross"></canvas>
             </div>
+          </div>
+           <div class="col-md-6">
+              <div
+                class="border-x-[1px] border-y-[1px]  rounded-md border-slate-300 bg-white chartBox">
+                <canvas style="height: 100%; width: 100%;" id="gross"></canvas>
+            </div>
+           </div>
+          <div class="col-md-6">
+              <div
+                class="border-x-[1px] border-y-[1px] rounded-md border-slate-300 bg-white chartBox">
+                <canvas style="height: 100%; width: 100%;" id="dailyVolume"></canvas>
+            </div>
+          </div>
+           <div class="col-md-6">
+              <div
+                class="border-x-[1px] border-y-[1px] rounded-md border-slate-300 bg-white chartBox">
+                <canvas style="height: 100%; width: 100%;" id="dailyWin"></canvas>
+            </div>
+           </div>
+        </div>
           </div>
         </section>
       </div>
@@ -340,113 +340,10 @@
   <!-- Resources -->
 
   <script type="text/javascript" src="./assets/js/app.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-  <!-- Chart code -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+   <script src="./assets/js/charts.js"></script>
+
   <script>
-    am5.ready(function () {
-
-      // Create root element
-      // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-      var root = am5.Root.new("chartdiv1");
-
-
-      // Set themes
-      // https://www.amcharts.com/docs/v5/concepts/themes/
-      root.setThemes([
-        am5themes_Animated.new(root)
-      ]);
-
-
-      // Create chart
-      // https://www.amcharts.com/docs/v5/charts/xy-chart/
-      var chart = root.container.children.push(am5xy.XYChart.new(root, {
-        panX: false,
-        panY: false,
-        wheelX: "panX",
-        wheelY: "zoomX"
-      }));
-
-
-      // Add cursor
-      // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
-      var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
-        behavior: "zoomX"
-      }));
-      cursor.lineY.set("visible", false);
-
-      var date = new Date();
-      date.setHours(0, 0, 0, 0);
-      var value = 100;
-
-      function generateData() {
-        value = Math.round((Math.random() * 10 - 5) + value);
-        am5.time.add(date, "day", 1);
-        return {
-          date: date.getTime(),
-          value: value
-        };
-      }
-
-      function generateDatas(count) {
-        var data = [];
-        for (var i = 0; i < count; ++i) {
-          data.push(generateData());
-        }
-        return data;
-      }
-
-
-      // Create axes
-      // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-      var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
-        maxDeviation: 0,
-        baseInterval: {
-          timeUnit: "day",
-          count: 1
-        },
-        renderer: am5xy.AxisRendererX.new(root, {}),
-        tooltip: am5.Tooltip.new(root, {})
-      }));
-
-      var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-        renderer: am5xy.AxisRendererY.new(root, {})
-      }));
-
-
-      // Add series
-      // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-      var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-        name: "Series",
-        xAxis: xAxis,
-        yAxis: yAxis,
-        valueYField: "value",
-        valueXField: "date",
-        tooltip: am5.Tooltip.new(root, {
-          labelText: "{valueY}"
-        })
-      }));
-
-
-
-      // Add scrollbar
-      // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-      chart.set("scrollbarX", am5.Scrollbar.new(root, {
-        orientation: "horizontal"
-      }));
-
-      var data = generateDatas(50);
-      series.data.setAll(data);
-
-
-      // Make stuff animate on load
-      // https://www.amcharts.com/docs/v5/concepts/animations/
-      series.appear(1000);
-      chart.appear(1000, 100);
-
-    }); // end am5.ready()
-
  
   </script>
 
