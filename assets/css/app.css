@@ -13,13 +13,13 @@ body{
   overflow-x: hidden;
 }
 .topheader{
-  background: rgba(3, 39, 10, 0.02);
+  /* background: rgba(3, 39, 10, 0.02); */
 border-radius: 0px 0px 4px 4px;
 position: fixed;
     width: 100%;
     z-index: 99;
     top: 0;
-    right: -12px;
+    /* right: -12px; */
 }
 .mainlogo{
 
@@ -84,6 +84,7 @@ position: absolute;
     width: 100%;
     background-color: #E5E5E5;
     border-bottom: 6px solid #fff;
+    margin: 0px;
 }
 .tophead1 .col-md-3{
   background-color: #fff;
@@ -1455,6 +1456,10 @@ border-radius: 4px;
     color: #656565 !important;
         margin: 15px auto 0;
 }
+.maincontnt .row{
+  width: 100%;
+  margin: 0px;
+}
 
 @media(min-width:1400px){
 .tophead1 .col-md-3 {
@@ -1496,8 +1501,9 @@ border-radius: 4px;
     right: 0;
 }
 .boxsehea2 a {
-    font-size: 10px;
-    padding: 0px 6px;
+      font-size: 12px;
+    padding: 0px 10px;
+    margin: 18px 0 10px;
 }
 }
 @media(min-width:768px){
@@ -1506,6 +1512,9 @@ border-radius: 4px;
   }
 }
 @media(max-width:768px){
+  .boxsehea2 a {
+    margin: 10px 0 10px;
+}
   .menudesk{
  display: none; 
 }
@@ -1570,7 +1579,11 @@ width: 70%;
 }
 }
 @media(max-width:600px){
- 
+     .boxsehea2 a {
+      font-size: 10px;
+    padding: 0px 6px;
+    margin: 10px 0 10px;
+}
   .topheader .col-md-3{
 width: 35%;
   }
