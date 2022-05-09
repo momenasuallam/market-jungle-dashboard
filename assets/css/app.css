@@ -1612,10 +1612,15 @@ width: 65%;
 }
 }
 
-@media only screen and (min-width: 0px) {
-
+@media only screen and (max-width: 600px) {
+.chartBox{
+    height: 250px;
+    }
+    .chartBox canvas{
+      height: 230px !important;
+    }
   }
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 600px) {
   .chartBox{
     height: 400px;
     }
