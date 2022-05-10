@@ -331,7 +331,7 @@ font-weight: 500;
 font-size: 14px;
 line-height: 16px;
 letter-spacing: 0.5px;
-background: #F4F9FD !important;
+/* background: #F4F9FD !important; */
 color: #8C8C8C;
 opacity: 0.5;
 /* background: #F4F9FD; */
@@ -1467,6 +1467,21 @@ border-radius: 4px;
   padding: 0 15px 20px;
 }
 
+.chartflexinfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px 12px;
+}
+.chartflexinfo h2{
+    font-family: futura;
+    font-style: normal;
+  font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+color: #000000;;
+    margin: 0px;
+}
 @media(min-width:1400px){
 .tophead1 .col-md-3 {
     width: 20%;
@@ -1585,6 +1600,9 @@ width: 70%;
 }
 }
 @media(max-width:600px){
+ .cntrback{
+   justify-content: center;
+ }
      .boxsehea2 a {
       font-size: 10px;
     padding: 0px 6px;
