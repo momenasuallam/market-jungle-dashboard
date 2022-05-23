@@ -87,28 +87,102 @@ $(".js-example-tags").select2({
    });
 
 
-   $('input[type="file"]').each(function () {
-     // Refs
-     var $file = $(this),
-       $label = $file.next("label"),
-       $labelText = $label.find("span"),
-       labelDefault = $labelText.text();
+  //  $('input[type="file"]').each(function () {
+  //    // Refs
+  //    var $file = $(this),
+  //      $label = $file.next("label"),
+  //      $labelText = $label.find("span"),
+  //      labelDefault = $labelText.text();
 
-     // When a new file is selected
-     $file.on("change", function (event) {
-       var fileName = $file.val().split("\\").pop(),
-         tmppath = URL.createObjectURL(event.target.files[0]);
-       //Check successfully selection
-       if (fileName) {
-         $label
-           .addClass("file-ok")
-           .css("background-image", "url(" + tmppath + ")");
-         $labelText.text(fileName);
-       } else {
-         $label.removeClass("file-ok");
-         $labelText.text(labelDefault);
-       }
-     });
+  //    // When a new file is selected
+  //    $file.on("change", function (event) {
+  //      var fileName = $file.val().split("\\").pop(),
+  //        tmppath = URL.createObjectURL(event.target.files[0]);
+  //      //Check successfully selection
+  //      if (fileName) {
+  //        $label
+  //          .addClass("file-ok")
+  //          .css("background-image", "url(" + tmppath + ")");
+  //        $labelText.text(fileName);
+  //      } else {
+  //        $label.removeClass("file-ok");
+  //        $labelText.text(labelDefault);
+  //      }
+  //    });
 
-     // End loop of file input elements
-   });
+  //    // End loop of file input elements
+  //  });
+
+
+  document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+    const dropZoneElement = inputElement.closest(".drop-zone");
+
+    dropZoneElement.addEventListener("click", (e) => {
+      inputElement.click();
+    });
+
+    inputElement.addEventListener("change", (e) => {
+      if (inputElement.files.length) {
+        updateThumbnail(dropZoneElement, inputElement.files[0]);
+      }
+    });
+
+    dropZoneElement.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZoneElement.classList.add("drop-zone--over");
+    });
+
+    ["dragleave", "dragend"].forEach((type) => {
+      dropZoneElement.addEventListener(type, (e) => {
+        dropZoneElement.classList.remove("drop-zone--over");
+      });
+    });
+
+    dropZoneElement.addEventListener("drop", (e) => {
+      e.preventDefault();
+
+      if (e.dataTransfer.files.length) {
+        inputElement.files = e.dataTransfer.files;
+        updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+      }
+
+      dropZoneElement.classList.remove("drop-zone--over");
+    });
+  });
+
+  /**
+   * Updates the thumbnail on a drop zone element.
+   *
+   * @param {HTMLElement} dropZoneElement
+   * @param {File} file
+   */
+  function updateThumbnail(dropZoneElement, file) {
+    let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+
+    // First time - remove the prompt
+    if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+      dropZoneElement.querySelector(".drop-zone__prompt").remove();
+    }
+
+    // First time - there is no thumbnail element, so lets create it
+    if (!thumbnailElement) {
+      thumbnailElement = document.createElement("div");
+      thumbnailElement.classList.add("drop-zone__thumb");
+      dropZoneElement.appendChild(thumbnailElement);
+    }
+
+    thumbnailElement.dataset.label = file.name;
+
+    // Show thumbnail for image files
+    if (file.type.startsWith("image/")) {
+      const reader = new FileReader();
+
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+      };
+    } else {
+      thumbnailElement.style.backgroundImage = null;
+    }
+  }
+
